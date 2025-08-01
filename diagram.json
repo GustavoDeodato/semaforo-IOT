@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "author": "Gustavo Silva Deodato",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard", "id": "bb1", "top": -166.2, "left": -256.4, "attrs": {} },
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 75.14,
+      "left": 205.3,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20231227-v1.22.0" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -61.2,
+      "left": -351.4,
+      "attrs": { "color": "green", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -24.85,
+      "left": -48,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -80.4,
+      "left": -303.4,
+      "attrs": { "color": "yellow", "flip": "" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -53.65,
+      "left": -38.4,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r3",
+      "top": -82.45,
+      "left": -48,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": 102,
+      "left": -130.2,
+      "attrs": { "color": "red", "flip": "" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "r3:2", "esp:16", "red", [ "v345.6", "h46.8" ] ],
+    [ "led2:A", "r2:1", "gold", [ "v0", "h28.4" ] ],
+    [ "led1:A", "r1:1", "green", [ "v0", "h124.8" ] ],
+    [ "r1:2", "esp:5", "green", [ "v86.4", "h46.8", "v172.8", "h192" ] ],
+    [ "led3:A", "r3:1", "red", [ "v0", "h57.2" ] ],
+    [ "led3:C", "esp:GND.1", "red", [ "v-19.2", "h326.4" ] ],
+    [ "led2:C", "esp:GND.1", "gold", [ "v96", "h77.2" ] ],
+    [ "r1:1", "bb1:20b.i", "", [ "$bb" ] ],
+    [ "r1:2", "bb1:26b.i", "", [ "$bb" ] ],
+    [ "r3:1", "bb1:20t.e", "", [ "$bb" ] ],
+    [ "r3:2", "bb1:26t.e", "", [ "$bb" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0", "h-28.4", "v182.4", "h528" ] ],
+    [ "r2:1", "bb1:21b.f", "", [ "$bb" ] ],
+    [ "r2:2", "bb1:27b.f", "", [ "$bb" ] ],
+    [ "r2:2", "esp:4", "gold", [ "v297.6", "h200.4" ] ]
+  ],
+  "dependencies": {}
+}
